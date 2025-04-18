@@ -10,7 +10,7 @@ from .base import AbstractBaseModel
 
 class SlideModel(AbstractBaseModel):
     title = CharField(_("Title"), max_length=255)
-    descripiton = TextField(_("Description"), max_length=255)
+    descripiton = TextField(_("Description"))
     slide = FileField(upload_to="slides/")
 
     def __str__(self):
