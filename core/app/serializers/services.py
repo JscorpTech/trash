@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, SerializerMethodField
 from core.app.models.services import PictureModel, ServiceModel
 
 
@@ -27,24 +27,44 @@ class PictureUpdateSerializer(ModelSerializer):
 
 
 class ServiceListSerializer(ModelSerializer):
+    picture = SerializerMethodField()
+
     class Meta:
         model = ServiceModel
-        fields = ["id", "name", "descritpion", "picture"]
+        fields = ["id", "descritpion", "picture"]
+
+    def get_picture(self, obj):
+        request = self.context.get("request")
+        return [
+            request.build_absolute_uri(p.picture.url)
+            for p in obj.picture.all()
+            if p.picture
+        ]
 
 
 class ServiceRetrieveSerializer(ModelSerializer):
+    picture = SerializerMethodField()
+
     class Meta:
         model = ServiceModel
-        fields = ["id", "name", "descritpion", "picture"]
+        fields = ["id", "descritpion", "picture"]
+
+    def get_picture(self, obj):
+        request = self.context.get("request")
+        return [
+            request.build_absolute_uri(p.picture.url)
+            for p in obj.picture.all()
+            if p.picture
+        ]
 
 
 class ServiceCreateSerializer(ModelSerializer):
     class Meta:
         model = ServiceModel
-        fields = ["name", "descritpion", "picture"]
+        fields = ["descritpion", "picture"]
 
 
 class ServiceUpdateSerializer(ModelSerializer):
     class Meta:
         model = ServiceModel
-        fields = ["name", "descritpion", "picture"]
+        fields = ["descritpion", "picture"]
