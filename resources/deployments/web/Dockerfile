@@ -21,4 +21,4 @@ RUN chmod +x /app/resources/deployments/web/entrypoint
 
 # Set entrypoint and default command
 ENTRYPOINT ["/app/resources/deployments/web/entrypoint"]
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "--workers", "4", "config.wsgi:application"]
+CMD ["gunicorn", "-b", "0.0.0.0:8069", "--workers", "4", "config.wsgi:application"]
