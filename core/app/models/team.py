@@ -2,6 +2,7 @@ from django.utils.translation import gettext_lazy as _
 from django.db.models import (
     CharField,
     TextField,
+    FileField,
 )
 
 from .base import AbstractBaseModel
@@ -9,6 +10,7 @@ from .base import AbstractBaseModel
 
 class TeamMemberModel(AbstractBaseModel):
     name = CharField(_("Name"), max_length=255)
+    picture = FileField(_("Picture"), upload_to="team_pictures/")
     role = CharField(_("Role"), max_length=255)
     about = TextField(_("About"))
 
