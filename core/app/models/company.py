@@ -4,6 +4,7 @@ from django.db.models import (
     DecimalField,
     EmailField,
     PositiveIntegerField,
+    TextField,
 )
 
 from .base import AbstractBaseModel
@@ -19,6 +20,8 @@ class CompanyModel(AbstractBaseModel):
     staff = PositiveIntegerField(_("Number of employees"))
     work = PositiveIntegerField(_("Hours of work "))
     countries = PositiveIntegerField(_("Countries"))
+    about_us_title = CharField(_("About us title"), max_length=255)
+    about_us_description = TextField(_("About us description"))
 
     def __str__(self):
         return f"{self.email} - {self.phone}"

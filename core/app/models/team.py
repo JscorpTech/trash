@@ -10,7 +10,9 @@ from .base import AbstractBaseModel
 
 class TeamMemberModel(AbstractBaseModel):
     name = CharField(_("Name"), max_length=255)
-    picture = FileField(_("Picture"), upload_to="team_pictures/")
+    picture = FileField(
+        _("Picture"), upload_to="team_pictures/", default="team_pictures/default.jpg"
+    )
     role = CharField(_("Role"), max_length=255)
     about = TextField(_("About"))
 
