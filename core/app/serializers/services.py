@@ -29,22 +29,22 @@ class PictureUpdateSerializer(ModelSerializer):
 class ServiceListSerializer(ModelSerializer):
     class Meta:
         model = ServiceModel
-        fields = ["id", "descritpion", "picture"]
+        fields = ["id", "name", "descritpion", "picture"]
 
 
 class ServiceRetrieveSerializer(ModelSerializer):
     class Meta:
         model = ServiceModel
-        fields = ["id", "descritpion", "picture"]
+        fields = ["id", "name", "descritpion", "picture"]
 
 
 class ServiceCreateSerializer(ModelSerializer):
     class Meta:
         model = ServiceModel
-        fields = ["descritpion", "picture"]
+        fields = ["name", "descritpion", "picture"]
 
 
 class ServiceUpdateSerializer(ModelSerializer):
     class Meta:
         model = ServiceModel
-        fields = ["descritpion", "picture"]
+        fields = ["name", "descritpion", "picture"]
