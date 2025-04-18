@@ -66,22 +66,6 @@ services:
     networks:
       - app_network
 
-  nginx:
-    restart: always
-    build:
-      context: .
-      dockerfile: resources/deployments/nginx/Dockerfile
-    ports:
-      - "80:80"
-    volumes:
-      # Mount the static and media directories (make sure these paths match those set inside Nginx)
-      - ./resources/static:/app/resources/static
-      - ./resources/media:/app/resources/media
-    depends_on:
-      - web
-    networks:
-      - app_network
-
 volumes:
   pgbouncer_data:
   pgdata:
