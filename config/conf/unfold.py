@@ -33,7 +33,7 @@ UNFOLD = {
     "SHOW_LANGUAGES": True,
     "SHOW_BACK_BUTTON": True,
     "ENVIRONMENT": "core.config.unfold.environment_callback",
-    "DASHBOARD_CALLBACK": "core.app.views.dashboard_callback",
+    # "DASHBOARD_CALLBACK": "core.app.views.dashboard_callback",
     "LOGIN": {
         "image": lambda request: static("images/login.png"),
     },
