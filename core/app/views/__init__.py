@@ -1,0 +1,10 @@
+from .auth import *  # noqa
+from .user import *  # noqa
+from .team import *  # noqa
+from .slide import *  # noqa
+from .services import *  # noqa
+from .projects import *  # noqa
+from .news import *  # noqa
+from .company import *  # noqa
+from .about import *  # noqa
+from .application import *  # noqa
