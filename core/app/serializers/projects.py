@@ -1,4 +1,6 @@
+from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
+
 from core.app.models.projects import ProjectCategoryModel, ProjectModel
 
 
@@ -28,13 +30,16 @@ class ProjectCategoryUpdateSerializer(ModelSerializer):
 
 class ProjectListSerializer(ModelSerializer):
     picture = SerializerMethodField()
+    category = serializers.SlugRelatedField(
+        many=True, read_only=True, slug_field="name"
+    )
 
     class Meta:
         model = ProjectModel
         fields = [
             "id",
             "name",
-            "category",
+            "category",  # now returns ["Home construction", "Renovation", …]
             "client",
             "architect",
             "location",
@@ -46,26 +51,26 @@ class ProjectListSerializer(ModelSerializer):
 
     def get_picture(self, obj):
         request = self.context.get("request")
-        pics = obj.picture.all()
         urls = []
-        for pic in pics:
+        for pic in obj.picture.all():
             if pic.picture:
-                if request:
-                    urls.append(request.build_absolute_uri(pic.picture.url))
-                else:
-                    urls.append(pic.picture.url)
+                url = pic.picture.url
+                urls.append(request.build_absolute_uri(url) if request else url)
         return urls
 
 
 class ProjectRetrieveSerializer(ModelSerializer):
     picture = SerializerMethodField()
+    category = serializers.SlugRelatedField(
+        many=True, read_only=True, slug_field="name"
+    )
 
     class Meta:
         model = ProjectModel
         fields = [
             "id",
             "name",
-            "category",
+            "category",  # now returns names
             "client",
             "architect",
             "location",
@@ -77,14 +82,11 @@ class ProjectRetrieveSerializer(ModelSerializer):
 
     def get_picture(self, obj):
         request = self.context.get("request")
-        pics = obj.picture.all()
         urls = []
-        for pic in pics:
+        for pic in obj.picture.all():
             if pic.picture:
-                if request:
-                    urls.append(request.build_absolute_uri(pic.picture.url))
-                else:
-                    urls.append(pic.picture.url)
+                url = pic.picture.url
+                urls.append(request.build_absolute_uri(url) if request else url)
         return urls
 
 
@@ -93,7 +95,7 @@ class ProjectCreateSerializer(ModelSerializer):
         model = ProjectModel
         fields = [
             "name",
-            "category",
+            "category",  # input still accepts IDs
             "client",
             "architect",
             "location",
@@ -109,7 +111,7 @@ class ProjectUpdateSerializer(ModelSerializer):
         model = ProjectModel
         fields = [
             "name",
-            "category",
+            "category",  # input still accepts IDs
             "client",
             "architect",
             "location",
