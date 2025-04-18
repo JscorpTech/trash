@@ -3,7 +3,8 @@ from pathlib import Path
 from config.env import env
 from config.conf import *  # noqa
 from django.utils.translation import gettext_lazy as _
-import dj_database_url
+# import dj_database_url
+
 # from config.conf.unfold import UNFOLD  # noqa
 
 # Base Directory
@@ -96,23 +97,23 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 #         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
 #     }
 # }
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": env("POSTGRES_DB"),
-#         "USER": env("POSTGRES_USER"),
-#         "PASSWORD": env("POSTGRES_PASSWORD"),
-#         "HOST": env("POSTGRES_HOST"),
-#         "PORT": env("POSTGRES_PORT"),
-#     }
-# }
 DATABASES = {
-    "default": dj_database_url.config(
-        default=env("DATABASE_URL"),
-        conn_max_age=600,  # Optional: Sets the maximum age of persistent database connections
-        ssl_require=True,  # Optional: Whether SSL is required for the connection
-    )
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env("POSTGRES_DB"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASSWORD"),
+        "HOST": env("POSTGRES_HOST"),
+        "PORT": env("POSTGRES_PORT"),
+    }
 }
+# DATABASES = {
+#     "default": dj_database_url.config(
+#         default=env("DATABASE_URL"),
+#         conn_max_age=600,  # Optional: Sets the maximum age of persistent database connections
+#         ssl_require=True,  # Optional: Whether SSL is required for the connection
+#     )
+# }
 
 CHANNEL_LAYERS = {
     "default": {
