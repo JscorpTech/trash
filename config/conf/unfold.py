@@ -8,7 +8,6 @@ from . import navigation as navigation
 def environment_callback(request):
     if settings.DEBUG:
         return [_("Development"), "primary"]
-
     return [_("Production"), "primary"]
 
 
@@ -34,7 +33,7 @@ UNFOLD = {
     "SHOW_LANGUAGES": True,
     "SHOW_BACK_BUTTON": True,
     "ENVIRONMENT": "core.config.unfold.environment_callback",
-    "DASHBOARD_CALLBACK": "apps.shared.views.dashboard_callback",
+    "DASHBOARD_CALLBACK": "core.app.views.dashboard_callback",
     "LOGIN": {
         "image": lambda request: static("images/login.png"),
     },
@@ -57,12 +56,12 @@ UNFOLD = {
             "950": "9 9 11",
         },
         "font": {
-            "subtle-light": "var(--color-base-500)",  # text-base-500
-            "subtle-dark": "var(--color-base-400)",  # text-base-400
-            "default-light": "var(--color-base-600)",  # text-base-600
-            "default-dark": "var(--color-base-300)",  # text-base-300
-            "important-light": "var(--color-base-900)",  # text-base-900
-            "important-dark": "var(--color-base-100)",  # text-base-100
+            "subtle-light": "var(--color-base-500)",
+            "subtle-dark": "var(--color-base-400)",
+            "default-light": "var(--color-base-600)",
+            "default-dark": "var(--color-base-300)",
+            "important-light": "var(--color-base-900)",
+            "important-dark": "var(--color-base-100)",
         },
         "primary": {
             "50": "240 253 250",
