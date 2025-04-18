@@ -1,16 +1,17 @@
 from django.contrib import admin
+from unfold.admin import ModelAdmin
 from core.app.models.projects import ProjectCategoryModel, ProjectModel
 
 
 @admin.register(ProjectCategoryModel)
-class ProjectCategoryAdmin(admin.ModelAdmin):
+class ProjectCategoryAdmin(ModelAdmin):
     list_display = ("name", "created_at")
     search_fields = ("name",)
     ordering = ("-created_at",)
 
 
 @admin.register(ProjectModel)
-class ProjectAdmin(admin.ModelAdmin):
+class ProjectAdmin(ModelAdmin):
     list_display = (
         "name",
         "client",

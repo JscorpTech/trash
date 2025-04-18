@@ -2,22 +2,23 @@ from django.conf import settings
 from django.templatetags.static import static
 from django.utils.translation import gettext_lazy as _
 
-from .navigation import PAGES
+from . import navigation as navigation
 
 
 def environment_callback(request):
     if settings.DEBUG:
         return [_("Development"), "primary"]
+
     return [_("Production"), "primary"]
 
 
 UNFOLD = {
-    "SITE_TITLE": "TEST",
-    "SITE_HEADER": "TEST",
+    "SITE_TITLE": "Constra",
+    "SITE_HEADER": "Constra",
     "SITE_URL": "/",
     "SITE_ICON": {
-        "light": lambda request: static("resources/media/app/logo.png"),
-        "dark": lambda request: static("resources/media/app/logo.png"),
+        "light": lambda request: static("app/logo.png"),
+        "dark": lambda request: static("app/logo.png"),
     },
     "SITE_FAVICONS": [
         {
@@ -33,7 +34,7 @@ UNFOLD = {
     "SHOW_LANGUAGES": True,
     "SHOW_BACK_BUTTON": True,
     "ENVIRONMENT": "core.config.unfold.environment_callback",
-    # "DASHBOARD_CALLBACK": "apps.shared.views.dashboard_callback",
+    "DASHBOARD_CALLBACK": "apps.shared.views.dashboard_callback",
     "LOGIN": {
         "image": lambda request: static("images/login.png"),
     },
@@ -56,12 +57,12 @@ UNFOLD = {
             "950": "9 9 11",
         },
         "font": {
-            "subtle-light": "var(--color-base-700)",  # Darker gray for better contrast
-            "subtle-dark": "var(--color-base-300)",  # Lighter gray for better contrast
-            "default-light": "var(--color-base-900)",  # Black for text
-            "default-dark": "var(--color-base-100)",  # White for text
-            "important-light": "var(--color-primary-700)",  # Primary color for emphasis
-            "important-dark": "var(--color-primary-300)",  # Lighter primary color for emphasis
+            "subtle-light": "var(--color-base-500)",  # text-base-500
+            "subtle-dark": "var(--color-base-400)",  # text-base-400
+            "default-light": "var(--color-base-600)",  # text-base-600
+            "default-dark": "var(--color-base-300)",  # text-base-300
+            "important-light": "var(--color-base-900)",  # text-base-900
+            "important-dark": "var(--color-base-100)",  # text-base-100
         },
         "primary": {
             "50": "240 253 250",
@@ -76,10 +77,6 @@ UNFOLD = {
             "900": "19 78 74",
             "950": "4 47 46",
         },
-        "background": {
-            "field-light": "255 255 255",  # White background for fields
-            "field-dark": "39 39 42",  # Dark gray background for fields
-        },
     },
     "EXTENSIONS": {
         "modeltranslation": {
@@ -92,7 +89,7 @@ UNFOLD = {
     },
     "SIDEBAR": {
         "show_search": True,
-        "show_all_applications": False,
-        "navigation": PAGES,
+        "show_all_applications": True,
+        "navigation": navigation.PAGES,
     },
 }

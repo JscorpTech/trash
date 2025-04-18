@@ -1,9 +1,10 @@
 from django.contrib import admin
+from unfold.admin import ModelAdmin
 from core.app.models.company import CompanyModel
 
 
 @admin.register(CompanyModel)
-class CompanyAdmin(admin.ModelAdmin):
+class CompanyAdmin(ModelAdmin):
     list_display = (
         "email",
         "phone",
