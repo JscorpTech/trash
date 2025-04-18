@@ -16,8 +16,8 @@ UNFOLD = {
     "SITE_HEADER": "TEST",
     "SITE_URL": "/",
     "SITE_ICON": {
-        "light": lambda request: static("images/logo.png"),
-        "dark": lambda request: static("images/logo.png"),
+        "light": lambda request: static("resources/media/app/logo.png"),
+        "dark": lambda request: static("resources/media/app/logo.png"),
     },
     "SITE_FAVICONS": [
         {
