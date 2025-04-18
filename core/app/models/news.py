@@ -6,7 +6,7 @@ from .base import AbstractBaseModel
 
 class NewsModel(AbstractBaseModel):
     title = CharField(_("Title"), max_length=255)
-    descripiton = TextField(_("Description"), max_length=255)
+    descripiton = TextField(_("Description"))
     picture = FileField(upload_to="news/")
 
     def __str__(self):
