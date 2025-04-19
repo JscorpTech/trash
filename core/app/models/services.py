@@ -1,5 +1,5 @@
 from django.utils.translation import gettext_lazy as _
-from django.db.models import TextField, FileField, ManyToManyField
+from django.db.models import TextField, FileField, ManyToManyField, CharField
 
 from .base import AbstractBaseModel
 
@@ -18,6 +18,7 @@ class PictureModel(AbstractBaseModel):
 
 
 class ServiceModel(AbstractBaseModel):
+    title = CharField(_("Title"), max_length=255, default="")
     descritpion = TextField(_("Description"))
     picture = ManyToManyField(
         PictureModel, blank=True, null=True, verbose_name=_("Picture")
