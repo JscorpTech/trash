@@ -97,6 +97,14 @@ PAGES = [
                 ),
             },
             {
+                "title": _("Gallery"),  # Projects
+                "icon": "work",
+                "link": reverse_lazy("admin:app_gallerymodel_changelist"),
+                "permission": lambda request: user_has_group_or_permission(
+                    request.user, "view_project"
+                ),
+            },
+            {
                 "title": _("Company"),  # Company
                 "icon": "business",
                 "link": reverse_lazy("admin:app_companymodel_changelist"),

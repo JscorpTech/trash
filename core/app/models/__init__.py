@@ -7,3 +7,4 @@ from .projects import ProjectModel, ProjectCategoryModel  # noqa
 from .services import ServiceModel  # noqa
 from .slide import SlideModel  # noqa
 from .team import TeamMemberModel  # noqa
+from .gallery import GalleryModel  # noqa

@@ -6,3 +6,4 @@ from .news import NewsAdmin  # noqa
 from .company import CompanyAdmin  # noqa
 from .about import AboutAdmin  # noqa
 from .application import ApplicationAdmin  # noqa
+from .gallery import GalleryAdmin  # noqa

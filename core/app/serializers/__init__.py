@@ -8,3 +8,4 @@ from .news import *  # noqa
 from .company import *  # noqa
 from .about import *  # noqa
 from .application import *  # noqa
+from .gallery import *  # noqa

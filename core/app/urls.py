@@ -14,6 +14,7 @@ from core.app.views import (
     CompanyViewSet,
     AboutViewSet,
     ApplicationViewSet,
+    GalleryViewSet,
 )
 
 router = DefaultRouter()
@@ -26,6 +27,7 @@ router.register("news", NewsViewSet, "news")
 router.register("companies", CompanyViewSet, "companies")
 router.register("about", AboutViewSet, "about")
 router.register("applications", ApplicationViewSet, "applications")
+router.register("gallery", GalleryViewSet, "gallery")
 
 urlpatterns = [
     path("", include(router.urls)),
