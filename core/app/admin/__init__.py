@@ -1,5 +1,4 @@
 from .user import UserAdmin  # noqa
-from .team import TeamMemberAdmin  # noqa
 from .slide import SlideAdmin  # noqa
 from .services import PictureAdmin, ServiceAdmin  # noqa
 from .projects import ProjectCategoryAdmin, ProjectAdmin  # noqa

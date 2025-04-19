@@ -17,6 +17,8 @@ services:
       - pgbouncer
     networks:
       - app_network
+    volumes:
+      - ./resources/media/:/app/resources/media
 
   pgbouncer:
     image: pgbouncer/pgbouncer:latest

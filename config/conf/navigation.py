@@ -97,14 +97,6 @@ PAGES = [
                 ),
             },
             {
-                "title": _("Team Members"),  # Team Members
-                "icon": "group",
-                "link": reverse_lazy("admin:app_teammembermodel_changelist"),
-                "permission": lambda request: user_has_group_or_permission(
-                    request.user, "view_teammember"
-                ),
-            },
-            {
                 "title": _("Company"),  # Company
                 "icon": "business",
                 "link": reverse_lazy("admin:app_companymodel_changelist"),

@@ -11,6 +11,10 @@ def environment_callback(request):
     return [_("Production"), "primary"]
 
 
+def dashboard_callback(request, context):
+    return context
+
+
 UNFOLD = {
     "SITE_TITLE": "Constra",
     "SITE_HEADER": "Constra",
@@ -32,8 +36,8 @@ UNFOLD = {
     "SHOW_VIEW_ON_SITE": True,
     "SHOW_LANGUAGES": True,
     "SHOW_BACK_BUTTON": True,
-    "ENVIRONMENT": "core.config.unfold.environment_callback",
-    "DASHBOARD_CALLBACK": "core.config.unfold.environment_callback",
+    "ENVIRONMENT": "config.conf.unfold.environment_callback",
+    "DASHBOARD_CALLBACK": "config.conf.unfold.dashboard_callback",
     "LOGIN": {
         "image": lambda request: static("images/login.png"),
     },
