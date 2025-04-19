@@ -1,3 +1,5 @@
+version: '3.8'
+
 networks:
   app_network:
     driver: bridge
@@ -5,12 +7,12 @@ networks:
 services:
 
   web:
-    restart: always
-    env_file:
-      - .env
     build:
       context: .
       dockerfile: resources/deployments/web/Dockerfile
+    restart: always
+    env_file:
+      - .env
     ports:
       - "8069:8000"
     depends_on:
@@ -18,7 +20,7 @@ services:
     networks:
       - app_network
     volumes:
-      - ./resources/media/:/app/resources/media
+      - media_data:/app/resources/media
 
   pgbouncer:
     image: pgbouncer/pgbouncer:latest
@@ -39,7 +41,7 @@ services:
     volumes:
       - pgbouncer_data:/etc/pgbouncer
     ports:
-      - ${POSTGRES_BOUNCER_PORT:-6432}:6432
+      - "${POSTGRES_BOUNCER_PORT:-6432}:6432"
     depends_on:
       db:
         condition: service_healthy
@@ -58,8 +60,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - pgdata:/var/lib/psqldb/data
-
+      - pgdata:/var/lib/postgresql/data
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}" ]
       interval: 10s
@@ -69,5 +70,6 @@ services:
       - app_network
 
 volumes:
-  pgbouncer_data:
   pgdata:
+  pgbouncer_data:
+  media_data:

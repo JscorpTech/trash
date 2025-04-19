@@ -46,7 +46,7 @@ class ProjectListSerializer(ModelSerializer):
             "size",
             "completed_at",
             "about",
-            "about_short",
+            "short_description",
             "picture",
         ]
 
@@ -78,7 +78,7 @@ class ProjectRetrieveSerializer(ModelSerializer):
             "size",
             "completed_at",
             "about",
-            "about_short",
+            "short_description",
             "picture",
         ]
 
@@ -104,7 +104,7 @@ class ProjectCreateSerializer(ModelSerializer):
             "size",
             "completed_at",
             "about",
-            "about_short",
+            "short_description",
             "picture",
         ]
 
@@ -121,6 +121,6 @@ class ProjectUpdateSerializer(ModelSerializer):
             "size",
             "completed_at",
             "about",
-            "about_short",
+            "short_description",
             "picture",
         ]
