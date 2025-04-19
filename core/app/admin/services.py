@@ -11,6 +11,6 @@ class PictureAdmin(ModelAdmin):
 
 @admin.register(ServiceModel)
 class ServiceAdmin(ModelAdmin):
-    list_display = ("id", "title", "descritpion", "created_at")
-    search_fields = ("title", "descritpion")
+    list_display = ("title", "description", "created_at")
+    search_fields = ("title", "description")
     ordering = ("-created_at",)

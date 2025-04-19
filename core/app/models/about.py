@@ -7,7 +7,8 @@ from core.app.choices import TitleChoice
 
 class AboutModel(AbstractBaseModel):
     title = CharField(_("Title"), choices=TitleChoice, max_length=255)
-    descripiton = TextField(_("Description"))
+    short_description = TextField(_("Short description"))
+    description = TextField(_("Description"))
 
     def __str__(self):
         return f"{self.title}"

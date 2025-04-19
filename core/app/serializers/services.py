@@ -31,7 +31,7 @@ class ServiceListSerializer(ModelSerializer):
 
     class Meta:
         model = ServiceModel
-        fields = ["id", "title", "descritpion", "picture"]
+        fields = ["id", "title", "short_description", "description", "picture"]
 
     def get_picture(self, obj):
         request = self.context.get("request")
@@ -47,7 +47,7 @@ class ServiceRetrieveSerializer(ModelSerializer):
 
     class Meta:
         model = ServiceModel
-        fields = ["id", "title", "descritpion", "picture"]
+        fields = ["id", "title", "short_description", "description", "picture"]
 
     def get_picture(self, obj):
         request = self.context.get("request")
@@ -61,10 +61,10 @@ class ServiceRetrieveSerializer(ModelSerializer):
 class ServiceCreateSerializer(ModelSerializer):
     class Meta:
         model = ServiceModel
-        fields = ["title", "descritpion", "picture"]
+        fields = ["title", "short_description", "description", "picture"]
 
 
 class ServiceUpdateSerializer(ModelSerializer):
     class Meta:
         model = ServiceModel
-        fields = ["title", "descritpion", "picture"]
+        fields = ["title", "short_description", "description", "picture"]

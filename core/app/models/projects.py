@@ -25,5 +25,6 @@ class ProjectModel(AbstractBaseModel):
     location = CharField(_("Location"), max_length=255)
     size = DecimalField(_("Size (SF)"), max_digits=16, decimal_places=2)
     completed_at = DateField(_("Completed at"))
+    short_description = TextField(_("Short description"))
     about = TextField(_("About"))
     picture = ManyToManyField(PictureModel, blank=True, verbose_name=_("Picture"))

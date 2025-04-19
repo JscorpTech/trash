@@ -21,6 +21,7 @@ class CompanyModel(AbstractBaseModel):
     work = PositiveIntegerField(_("Hours of work "))
     countries = PositiveIntegerField(_("Countries"))
     about_us_title = CharField(_("About us title"), max_length=255, default="")
+    about_us_short_text = TextField(_("About us short text"), default="")
     about_us_description = TextField(_("About us description"), default="")
 
     def __str__(self):

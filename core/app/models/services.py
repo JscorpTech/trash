@@ -19,7 +19,8 @@ class PictureModel(AbstractBaseModel):
 
 class ServiceModel(AbstractBaseModel):
     title = CharField(_("Title"), max_length=255, default="")
-    descritpion = TextField(_("Description"))
+    short_description = TextField(_("Short description"), default="")
+    description = TextField(_("Description"))
     picture = ManyToManyField(
-        PictureModel, blank=True, null=True, verbose_name=_("Picture")
+        PictureModel, blank=True, verbose_name=_("Picture")
     )

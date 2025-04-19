@@ -16,6 +16,7 @@ class CompanyListSerializer(ModelSerializer):
             "work",
             "countries",
             "about_us_title",
+            "about_us_short",
             "about_us_description",
         ]
 
@@ -34,6 +35,7 @@ class CompanyRetrieveSerializer(ModelSerializer):
             "work",
             "countries",
             "about_us_title",
+            "about_us_short",
             "about_us_description",
         ]
 
@@ -51,6 +53,7 @@ class CompanyCreateSerializer(ModelSerializer):
             "work",
             "countries",
             "about_us_title",
+            "about_us_short",
             "about_us_description",
         ]
 
@@ -68,5 +71,6 @@ class CompanyUpdateSerializer(ModelSerializer):
             "work",
             "countries",
             "about_us_title",
+            "about_us_short",
             "about_us_description",
         ]

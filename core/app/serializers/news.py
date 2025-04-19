@@ -5,22 +5,22 @@ from core.app.models.news import NewsModel
 class NewsListSerializer(ModelSerializer):
     class Meta:
         model = NewsModel
-        fields = ["id", "title", "descripiton", "picture"]
+        fields = ["id", "title", "short_derscription", "descritpion", "picture"]
 
 
 class NewsRetrieveSerializer(ModelSerializer):
     class Meta:
         model = NewsModel
-        fields = ["id", "title", "descripiton", "picture"]
+        fields = ["id", "title", "short_derscription", "descritpion", "picture"]
 
 
 class NewsCreateSerializer(ModelSerializer):
     class Meta:
         model = NewsModel
-        fields = ["title", "descripiton", "picture"]
+        fields = ["title", "short_derscription", "descritpion", "picture"]
 
 
 class NewsUpdateSerializer(ModelSerializer):
     class Meta:
         model = NewsModel
-        fields = ["title", "descripiton", "picture"]
+        fields = ["title", "short_derscription", "descritpion", "picture"]
