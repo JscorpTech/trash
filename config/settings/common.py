@@ -13,8 +13,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # Security
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = True
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["charmes.uz"]
+FORCE_SCRIPT_NAME = "/backend"
 
 LANGUAGE_CODE = "en"
 TIME_ZONE = "Asia/Tashkent"
