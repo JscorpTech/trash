@@ -79,11 +79,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Static Files
-STATIC_URL = "/backend/backend/static/"
+STATIC_URL = "/backend/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "resources/static")
 
 # Media
-MEDIA_URL = "/backend/backend/media/"
+MEDIA_URL = "/backend/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "resources/media")
 
 # Default Primary Key Field Type
