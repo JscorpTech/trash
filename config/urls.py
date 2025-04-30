@@ -12,28 +12,28 @@ from drf_spectacular.views import (
 # Admin Panel
 ################################
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("i18n/", include("django.conf.urls.i18n")),
+    path("backend/admin/", admin.site.urls),
+    path("backend/i18n/", include("django.conf.urls.i18n")),
 ]
 
 ################################
 # App Routes
 ################################
 urlpatterns += [
-    path("api/", include("core.app.urls")),
+    path("backend/api/", include("core.app.urls")),
 ]
 
 ################################
 # API Schema & Docs
 ################################
 urlpatterns += [
-    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path("backend/api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
-        "api/docs/",
+        "backend/api/docs/",
         SpectacularSwaggerView.as_view(url_name="schema"),
         name="swagger-ui",
     ),
-    path("api/redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
+    path("backend/api/redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
 ]
 
 ################################
