@@ -4,3 +4,5 @@ tommorow.md
 .env
 *.pyc
 *__pycache__/
+static/
+!static/app
