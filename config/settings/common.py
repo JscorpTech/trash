@@ -80,7 +80,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Static Files
 STATIC_URL = "/backend/static/"
-FORCE_SCRIPT_NAME="/backend"
+FORCE_SCRIPT_NAME="/backend/"
 STATIC_ROOT = os.path.join(BASE_DIR, "resources/static")
 
 # Media
