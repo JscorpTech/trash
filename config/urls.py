@@ -39,5 +39,5 @@ urlpatterns += [
 ################################
 # Static Files
 ################################
-urlpatterns += static("backend/" + settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static("backend/" + settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static("backend/backend/" + settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static("backend/backend/" + settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
